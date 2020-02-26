@@ -1,4 +1,4 @@
-const { duplicate, catPipeWc } = require('./streambox')
+const { csv2json, catPipeWc } = require('./streambox')
 const { upperCase } = require('voca')
 
 if (process.argv.length !== 3) {
@@ -12,4 +12,4 @@ const fileName = process.argv[2]
 // transform(fileName, /Chopin/g, upperCase)
 // transform(fileName, /Chopin/g, upperCase, false)
 duplicate(filename)
-catPipeWc(fileName,/[a-z]+/g,/;/,/^[A-Z]/)
+csv2json(fileName,/[a-z]+/g,/;/,/^[A-Z]/)

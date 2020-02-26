@@ -54,24 +54,26 @@ function transform(fileName, re, cb, inStdout = true) {
 function csv2json(fileName, key, split, value){
 
   const outputFileName = getDuplicateName(fileName)
+  const wstream = fs.createWriteStream(outputFileName)
+  let content = fs.createReadStream(fileName)
   const split = ';'
   let key = ''
   let value = ''
-  let content = ''
+  
 
   if(ext === '.csv' ){
     rstream.on('data', chunk => {
-      data.split(split){
-        if (data.match('/[a-z]+/g'){
-          key = key.push(data)
+      fileName.split(split)
+        if (fileName.match('/[a-z]+/g')){
+          key = key.push(fileName)
           }
 
-        else if(data.match('/^[A-Z]/g')){
-          value = value.push(data)
+        else if(fileName.match('/^[A-Z]/g')){
+          value = value.push(fileName)
         }        
-      }
-
-      content += chunk.parseJSON().replace(data)
+      
+      content = key + split + value  
+      content = Json.parse().replace(fileName)
       console.log(`Le fichier ${outputFileName} à bien été transformer.`)
     })
   }
